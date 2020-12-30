@@ -1,0 +1,10 @@
+<app-toolbar></app-toolbar>
+<app-title label="Lista de Usuários"></app-title>
+
+<mat-nav-list class="list">
+    <a mat-list-item *ngFor="let user of users" (click)="goToDetails(user)">
+        <mat-icon mat-list-icon>face</mat-icon>
+        <h4 mat-line>{{user.name.first}} {{user.name.last}}</h4>
+        <h6 mat-line>{{user.email}}</h6>
+    </a>
+</mat-nav-list>
