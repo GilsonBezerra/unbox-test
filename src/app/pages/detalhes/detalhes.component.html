@@ -21,6 +21,12 @@
             <span><strong>Telefone: </strong>{{telefone}}</span>
         </mat-card-content>
     </mat-card>
+
+    <div class="button__home">
+        <button mat-fab color="success" (click)="goToHome()">
+          <mat-icon>home</mat-icon>
+        </button>
+    </div>
     
 <ng-template #loading>
     <mat-spinner class="loading"></mat-spinner>

@@ -1,6 +1,6 @@
 import { map } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { User } from '../../models/user';
 import { UserService } from '../../services/user.service';
@@ -33,31 +33,33 @@ export class DetalhesComponent implements OnInit {
 
 
   constructor(
-    private route: ActivatedRoute,
-    private userService: UserService) { 
-    this.foto = this.route.snapshot.paramMap.get('foto');
-    this.fotoSmall = this.route.snapshot.paramMap.get('fotoSmall');
-    this.nome = this.route.snapshot.paramMap.get('nome');
-    this.rua = this.route.snapshot.paramMap.get('rua');
-    this.numero = this.route.snapshot.paramMap.get('numero');
-    this.cidade = this.route.snapshot.paramMap.get('cidade');
-    this.estado = this.route.snapshot.paramMap.get('estado');
-    this.pais = this.route.snapshot.paramMap.get('pais');
-    this.cep = this.route.snapshot.paramMap.get('cep');
-    this.dataNascimento = this.route.snapshot.paramMap.get('dataNascimento');
-    this.idade = this.route.snapshot.paramMap.get('idade');
-    this.telefone = this.route.snapshot.paramMap.get('telefone');
-    this.email = this.route.snapshot.paramMap.get('email');
+    private activatedRoute : ActivatedRoute,
+    private userService : UserService,
+    private router : Router
+  ) { 
+    this.foto = this.activatedRoute.snapshot.paramMap.get('foto');
+    this.fotoSmall = this.activatedRoute.snapshot.paramMap.get('fotoSmall');
+    this.nome = this.activatedRoute.snapshot.paramMap.get('nome');
+    this.rua = this.activatedRoute.snapshot.paramMap.get('rua');
+    this.numero = this.activatedRoute.snapshot.paramMap.get('numero');
+    this.cidade = this.activatedRoute.snapshot.paramMap.get('cidade');
+    this.estado = this.activatedRoute.snapshot.paramMap.get('estado');
+    this.pais = this.activatedRoute.snapshot.paramMap.get('pais');
+    this.cep = this.activatedRoute.snapshot.paramMap.get('cep');
+    this.dataNascimento = this.activatedRoute.snapshot.paramMap.get('dataNascimento');
+    this.idade = this.activatedRoute.snapshot.paramMap.get('idade');
+    this.telefone = this.activatedRoute.snapshot.paramMap.get('telefone');
+    this.email = this.activatedRoute.snapshot.paramMap.get('email');
     
     }
 
   ngOnInit() {
     console.log(`Resultado dos dados passados ${this.nome}`);
-    
-
   }
   
-
+  goToHome() {
+    this.router.navigate(['/home']);
+  }
 
 
   
