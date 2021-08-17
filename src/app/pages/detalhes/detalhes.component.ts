@@ -12,13 +12,14 @@ import { UserService } from '../../services/user.service';
 })
 export class DetalhesComponent implements OnInit {
 
-  // public user: User[];
+  public user: User;
   public users$: Observable<User>;
   public cat$: Observable<User>;
 
   public foto;
   public fotoSmall;
   public nome;
+  public sobrenome;
   public rua;
   public numero;
   public cidade;
@@ -37,19 +38,26 @@ export class DetalhesComponent implements OnInit {
     private userService : UserService,
     private router : Router
   ) { 
-    this.foto = this.activatedRoute.snapshot.paramMap.get('foto');
-    this.fotoSmall = this.activatedRoute.snapshot.paramMap.get('fotoSmall');
-    this.nome = this.activatedRoute.snapshot.paramMap.get('nome');
-    this.rua = this.activatedRoute.snapshot.paramMap.get('rua');
-    this.numero = this.activatedRoute.snapshot.paramMap.get('numero');
-    this.cidade = this.activatedRoute.snapshot.paramMap.get('cidade');
-    this.estado = this.activatedRoute.snapshot.paramMap.get('estado');
-    this.pais = this.activatedRoute.snapshot.paramMap.get('pais');
-    this.cep = this.activatedRoute.snapshot.paramMap.get('cep');
-    this.dataNascimento = this.activatedRoute.snapshot.paramMap.get('dataNascimento');
-    this.idade = this.activatedRoute.snapshot.paramMap.get('idade');
-    this.telefone = this.activatedRoute.snapshot.paramMap.get('telefone');
-    this.email = this.activatedRoute.snapshot.paramMap.get('email');
+    if(this.router.getCurrentNavigation() !== undefined) {
+      const data = this.router.getCurrentNavigation();
+      this.user = data.extras.state.user;
+      console.log(`Resultado do state`, this.user);  
+
+      this.foto = this.user.picture.large;
+      this.fotoSmall = this.user.picture.thumbnail;
+      this.nome = this.user.name.first;
+      this.sobrenome = this.user.name.last;
+      this.rua = this.user.location.street.name;
+      this.numero = this.user.location.street.number;
+      this.cidade = this.user.location.city;
+      this.estado = this.user.location.state;
+      this.pais = this.user.location.country;
+      this.cep = this.user.location.postcode;
+      this.dataNascimento = this.user.dob.date;
+      this.idade = this.user.dob.age;
+      this.telefone = this.user.phone;
+      this.email = this.user.email;
+    }
     
     }
 
