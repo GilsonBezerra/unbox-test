@@ -11,17 +11,14 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  public users$: Observable<User[]>;
   public users: User[];
-  // user = new User();
 
   constructor(
     private userService: UserService,
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit() {
-    // this.users$ = this.userService.userSubject$;
     this.loadAll();
   }
 
