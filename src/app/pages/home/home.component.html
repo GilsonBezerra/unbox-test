@@ -3,7 +3,9 @@
 
 <mat-nav-list class="list">
     <a mat-list-item *ngFor="let user of users" (click)="goToDetails(user)">
-        <mat-icon mat-list-icon>face</mat-icon>
+        <mat-icon mat-list-icon>
+            <img src="{{user.picture.thumbnail}}">
+        </mat-icon>
         <h4 mat-line>{{user.name.first}} {{user.name.last}}</h4>
         <h6 mat-line>{{user.email}}</h6>
     </a>

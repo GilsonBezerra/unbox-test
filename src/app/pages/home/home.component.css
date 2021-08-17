@@ -1,3 +1,8 @@
 .list {
     margin-left: 8.2rem;
 }
+
+mat-icon {
+    margin-right: 2rem;
+    margin-top: -1.5rem;
+}

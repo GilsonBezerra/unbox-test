@@ -3,24 +3,38 @@
     left: 50%;
     top: 50%;
 }
+
 img {
     width: 300px;
     height: 300px;
 }
+
 mat-card-content {
     display: grid;
 }
+
 mat-card {
     width: fit-content;
     margin-left: 8.2rem;
 }
+
+mat-card-title {
+    margin-left: -1rem;
+}
+
+mat-card-subtitle {
+    margin-left: -1rem;
+}
+
 span {
     margin-top: 0.3rem;
 }
+
 .first__span {
     margin-top: 0.7rem;
 }
-.button__home{
+
+.button__home {
     margin-left: 16rem;
     margin-top: 2rem;
 }

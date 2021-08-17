@@ -26,25 +26,9 @@ export class HomeComponent implements OnInit {
   }
 
   goToDetails(user: User) {
-    this.router.navigate(['/detalhes'], {
-      // foto: user.picture.large,
-      // fotoSmall: user.picture.thumbnail,
-      // nome: user.name.first + ' ' + user.name.last,
-      // rua: user.location.street.name,
-      // numero: user.location.street.number,
-      // cidade: user.location.city,
-      // estado: user.location.state,
-      // pais: user.location.country,
-      // cep: user.location.postcode,
-      // dataNascimento: user.dob.date,
-      // idade: user.dob.age,
-      // telefone: user.phone,
-      // email: user.email
-      state: {
-        user: user
-      },
+    this.router.navigate(['/detalhes'], {   
+      state: { user: user },
       replaceUrl: true
-
     });
   }
 
