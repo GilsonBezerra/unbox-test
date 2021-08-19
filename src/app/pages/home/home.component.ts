@@ -12,10 +12,14 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   public users: User[];
+  public erro = false;
+  public errorMessage;
+  public errorURL;
+  public errorStatusText;
 
   constructor(
     private userService: UserService,
-    private router: Router,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -31,8 +35,20 @@ export class HomeComponent implements OnInit {
 
   public loadAll() {
     this.userService.getAll()
-      .subscribe((data) => this.users = data)
+      .subscribe(
+        (data) => {
+          this.users = data },
+        (error) => {
+          this.erro = true;
+          this.errorStatusText = error.statusText;
+          this.errorURL = error.url;
+          this.errorMessage = error.message;
+          alert(this.errorStatusText + this.errorURL + this.errorMessage);
+          
+        })
   }
+
+  
 
 
 }

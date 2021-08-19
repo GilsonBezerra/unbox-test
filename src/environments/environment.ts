@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   endPoint: 'https://randomuser.me/api/?results=50&nat=br'
+  // endPoint: 'https://localhost:8080'
 };
 
 /*

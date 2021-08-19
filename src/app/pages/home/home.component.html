@@ -10,3 +10,19 @@
         <h6 mat-line>{{user.email}}</h6>
     </a>
 </mat-nav-list>
+
+<div *ngIf="erro === true">
+
+    <span><strong>Erro: </strong>
+        {{errorStatusText}}
+    </span><br />
+
+    <span><strong>URL: </strong>
+        {{errorURL}}
+    </span><br />
+
+    <span><strong>Message: </strong>
+        {{errorMessage}}
+    </span>
+
+</div>
